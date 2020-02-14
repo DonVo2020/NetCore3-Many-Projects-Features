@@ -1,0 +1,74 @@
+﻿@model IEnumerable<DonVo.ViewModels.DTOs.ResultSearchSalesDTO>
+@{
+    ViewData["Title"] = "ResultSearch";
+}
+
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+            <div class="list_block container-fluid">
+
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-xl-9">
+                        <h2 class="top">Search Result for Sales - @Model.Count()</h2>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <div>
+                            <a asp-action="Index">Return to Search</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th title="ChannelName">Channel Name</th>
+                                <th title="StoreName">Store Name</th>
+                                <th title="ProductName">Product Name</th>
+                                <th title="PromotionName">Promotion Name</th>
+                                <th title="SalesQuantity">Sales Quantity</th>
+                                <th title="ReturnQuantity">Return Quantity</th>
+                                <th title="ReturnAmount">Return Amount</th>
+                                <th title="DiscountQuantity">Discount Quantity</th>
+                                <th title="DiscountAmount">Discount Amount</th>
+                                <th title="UnitCost">Unit Cost</th>
+                                <th title="UnitPrice">Unit Price</th>
+                                <th title="TotalCost">Total Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @{int counter = 1;}
+
+                            @foreach (var m in Model)
+                            {
+                                <tr>
+                                    <td>@counter</td>
+                                    <td title="@m.ChannelName">@m.ChannelName</td>
+                                    <td title="@m.StoreName">@m.StoreName</td>
+                                    <td title="@m.ProductName">@m.ProductName</td>
+                                    <td title="@m.PromotionName">@m.PromotionName</td>
+                                    <td>@m.SalesQuantity</td>
+                                    <td>@m.ReturnQuantity</td>
+                                    <td>$@m.ReturnAmount</td>
+                                    <td>@m.DiscountQuantity</td>
+                                    <td>$@m.DiscountAmount</td>
+                                    <td>$@m.UnitCost</td>
+                                    <td>$@m.UnitPrice</td>
+                                    <td>$@m.TotalCost</td>
+                                </tr>
+                                counter++;
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,97 @@
+﻿@model IEnumerable<DonVo.ViewModels.DTOs.Directories.ProductSubcategoryDTO>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+            <div class="row">
+                <a asp-controller="Home" asp-action="Directory" class="back-link">Return</a>
+                <hr />
+                <div class="form-group">
+                    <a asp-action="Create" class="btn btn-success">Add Product Subcategory</a>
+                </div>
+            </div>           
+            <div class="row main-block">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Product Subcategory Name
+                            </th>
+                            <th>
+                                Product Subcategory Description
+                            </th>
+                            <th>
+                                Product Subcategory Label
+                            </th>
+                            <th>
+                                Product Category
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (TempData["ErrorsList"] == null)
+                        {
+                            foreach (var item in Model)
+                            {
+                        <tr>
+                            <td>
+                                @item.ProductSubcategoryName
+                            </td>
+                            <td>
+                                @item.ProductSubcategoryDescription
+                            </td>
+                            <td>
+                                @item.ProductSubcategoryLabel
+                            </td>
+                            <td>
+                                @item.ProductCategoryName
+                            </td>
+                            <td class="text-right">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="UpdateProductSubcategory" asp-route-id="@item.ProductSubcategoryKey">Edit</a>
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <a class="dropdown-item delete"
+                                               href=""
+                                               data-controller="ProductSubcategory"
+                                               data-action="Delete"
+                                               data-id="@item.ProductSubcategoryKey"
+                                               data-body-message="Are you sure you want to Remove?">Remove</a>
+                                        }
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                            }
+                        }
+                        else
+                        {
+                            await Html.RenderPartialAsync("_Errors", TempData["ErrorsList"]);
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@if (User.IsInRole("Admin"))
+{
+    @section Scripts
+    {
+        <environment include="Development">
+            <script src="~/js/delete.js"></script>
+        </environment>
+
+        <environment exclude="Development">
+            <script src="~/js/delete.min.js" asp-append-version="true"></script>
+        </environment>
+    }
+}

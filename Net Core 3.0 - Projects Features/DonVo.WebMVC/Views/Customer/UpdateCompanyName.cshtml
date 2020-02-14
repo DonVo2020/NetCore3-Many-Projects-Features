@@ -1,0 +1,76 @@
+﻿@model DonVo.ViewModels.UpdateCustomerCompanyNameViewModel
+@{
+    ViewData["Title"] = "Update Company Name";
+}
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+            <div class="row align-items-center mt-3">
+                <div class="col-md-10">
+                    <h1>Editing Company Name</h1>
+                </div>
+            </div>
+            <hr>
+            @if (TempData["ErrorsList"] == null)
+            {
+        <form asp-action="UpdateCompanyName">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CustomerKey" />
+            @*<input type="hidden" asp-for="GeographyKey" />
+            <input type="hidden" asp-for="CustomerLabel" />
+            <input type="hidden" asp-for="Title" />
+            <input type="hidden" asp-for="FirstName" />
+            <input type="hidden" asp-for="MiddleName" />
+            <input type="hidden" asp-for="LastName" />
+            <input type="hidden" asp-for="NameStyle" />
+            <input type="hidden" asp-for="BirthDate" />
+            <input type="hidden" asp-for="MaritalStatus" />
+            <input type="hidden" asp-for="Gender" />
+            <input type="hidden" asp-for="EmailAddress" />
+            <input type="hidden" asp-for="YearlyIncome" />
+            <input type="hidden" asp-for="TotalChildren" />
+            <input type="hidden" asp-for="NumberChildrenAtHome" />
+            <input type="hidden" asp-for="Education" />
+            <input type="hidden" asp-for="Occupation" />
+            <input type="hidden" asp-for="HouseOwnerFlag" />
+            <input type="hidden" asp-for="NumberCarsOwned" />
+            <input type="hidden" asp-for="AddressLine1" />
+            <input type="hidden" asp-for="AddressLine2" />
+            <input type="hidden" asp-for="Phone" />
+            <input type="hidden" asp-for="DateFirstPurchase" />
+            <input type="hidden" asp-for="CustomerType" />
+            <input type="hidden" asp-for="EtlloadId" />
+            <input type="hidden" asp-for="LoadDate" />
+            <input type="hidden" asp-for="UpdateDate" />*@
+            <div class="row">
+                <div class="form-group col-lg-4 col-xl-12">
+                    <label asp-for="CompanyName" class="info-label">Company Name</label>
+                    <input asp-for="CompanyName" class="form-control" />
+                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <div class="form-group col-lg-3">
+                    <div>
+                        <a asp-action="Index">Return</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-right">
+                    <input type="submit" value="Save" class="btn btn-success btn-default" />
+                </div>
+            </div>
+        </form>
+            }
+            else
+            {
+                await Html.RenderPartialAsync("_Errors", TempData["ErrorsList"]);
+            }
+        </div>
+    </div>
+</section>
+
+@if (TempData["ErrorsListConfirmed"] != null)
+{
+    await Html.RenderPartialAsync("_Errors", TempData["ErrorsListConfirmed"]);
+}

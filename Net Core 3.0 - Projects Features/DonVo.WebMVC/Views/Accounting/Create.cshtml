@@ -1,0 +1,70 @@
+﻿@model DonVo.ViewModels.CreateMainAccountingViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+
+            <div class="row align-items-center mt-3">
+                <div class="col-md-10">
+                    <h1>Add Accounting</h1>
+                </div>
+            </div>
+            <hr>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="AccountName" class="info-label">Account Name</label>
+                        <input asp-for="AccountName" class="form-control" />
+                        <span asp-validation-for="AccountName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="AccountDescription" class="info-label">Account Description</label>
+                        <input asp-for="AccountDescription" class="form-control" />
+                        <span asp-validation-for="AccountDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="AccountLabel" class="info-label">Account Label</label>
+                        <input asp-for="AccountLabel" class="form-control" />
+                        <span asp-validation-for="AccountLabel" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="Operator" class="info-label">Operator</label>
+                        <input asp-for="Operator" class="form-control" />
+                        <span asp-validation-for="Operator" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="CustomMembers" class="info-label">Custom Members</label>
+                        <input asp-for="CustomMembers" class="form-control" />
+                        <span asp-validation-for="CustomMembers" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="ParentAccountKey" class="info-label">Parent Account (must be dropdown)</label>
+                        <input asp-for="ParentAccountKey" class="form-control" />
+                        <span asp-validation-for="ParentAccountKey" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="form-group col-lg-3">
+                        <div>
+                            <a asp-action="Index">Return</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <input type="submit" value="Add" class="btn btn-success btn-default" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@if (TempData["ErrorsList"] != null)
+{
+    await Html.RenderPartialAsync("_Errors", TempData["ErrorsList"]);
+}

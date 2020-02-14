@@ -1,0 +1,67 @@
+﻿@model DonVo.ViewModels.UpdateProductSubcategoryViewModel
+@{
+    ViewData["Title"] = "Update Product Subcategory";
+}
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+            <div class="row align-items-center mt-3">
+                <div class="col-md-10">
+                    <h1>Edit Product Subcategory</h1>
+                </div>
+            </div>
+            <hr>
+            @if (TempData["ErrorsList"] == null)
+            {
+        <form asp-action="UpdateProductSubcategory">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="ProductSubcategoryKey" type="hidden" />
+            <div class="row">
+                <div class="form-group col-lg-4 col-xl-6">
+                    <label asp-for="ProductSubcategoryName" class="info-label">Name</label>
+                    <input asp-for="ProductSubcategoryName" class="form-control" />
+                    <span asp-validation-for="ProductSubcategoryName" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-4 col-xl-6">
+                    <label asp-for="ProductSubcategoryDescription" class="info-label">Description</label>
+                    <input asp-for="ProductSubcategoryDescription" class="form-control" />
+                    <span asp-validation-for="ProductSubcategoryDescription" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-4 col-xl-6">
+                    <label asp-for="ProductSubcategoryLabel" class="info-label">Label</label>
+                    <input asp-for="ProductSubcategoryLabel" class="form-control" />
+                    <span asp-validation-for="ProductSubcategoryLabel" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-4 col-xl-6">
+                    <label asp-for="ProductCategoryKey" class="info-label">Product</label>
+                    <select asp-for="ProductCategoryKey" asp-items="@ViewBag.ProductCategory" class="custom-select"></select>
+                    <span asp-validation-for="ProductCategoryKey" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <div class="form-group col-lg-3">
+                    <div>
+                        <a asp-action="Index">Return</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-right">
+                    <input type="submit" value="Save" class="btn btn-success btn-default" />
+                </div>
+            </div>
+        </form>
+            }
+            else
+            {
+                await Html.RenderPartialAsync("_Errors", TempData["ErrorsList"]);
+            }
+        </div>
+    </div>
+</section>
+
+@if (TempData["ErrorsListConfirmed"] != null)
+{
+    await Html.RenderPartialAsync("_Errors", TempData["ErrorsListConfirmed"]);
+}

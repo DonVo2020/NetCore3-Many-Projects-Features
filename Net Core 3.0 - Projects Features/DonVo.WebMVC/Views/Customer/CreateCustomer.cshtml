@@ -1,0 +1,94 @@
+﻿@model DonVo.ViewModels.CreateCustomerCustomerViewModel
+@{
+    ViewData["Title"] = "CreateSubordinate";
+}
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+            <div class="row align-items-center mt-3">
+                <div class="col-md-10">
+                    <h1>Add Customer</h1>
+                </div>
+            </div>
+            <hr>
+            <form asp-action="CreateCustomer">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="HashIdMain" type="hidden" />
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="FirstName" class="info-label">First Name</label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="MiddleName" class="info-label">Middle Name</label>
+                        <input asp-for="MiddleName" class="form-control" />
+                        <span asp-validation-for="MiddleName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="LastName" class="info-label">Last Name</label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="CompanyName" class="info-label">Company Name</label>
+                        <input asp-for="CompanyName" class="form-control" />
+                        <span asp-validation-for="CompanyName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="Occupation" class="info-label">Occupation</label>
+                        <input asp-for="Occupation" class="form-control" />
+                        <span asp-validation-for="Occupation" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="EmailAddress" class="info-label">Email Address</label>
+                        <input asp-for="EmailAddress" class="form-control" />
+                        <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="Phone" class="info-label">Phone</label>
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="Gender" class="info-label">Gender</label>
+                        <input asp-for="Gender" class="form-control" />
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="MaritalStatus" class="info-label">Marital Status</label>
+                        <input asp-for="MaritalStatus" class="form-control" />
+                        <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="Education" class="info-label">Education</label>
+                        <input asp-for="Education" class="form-control" />
+                        <span asp-validation-for="Education" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="form-group col-lg-3">
+                        <div>
+                            <a asp-action="Index">Return</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <input type="submit" value="Add" class="btn btn-success btn-default" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@if (TempData["ErrorsList"] != null)
+{
+    await Html.RenderPartialAsync("_Errors", TempData["ErrorsList"]);
+}

@@ -1,0 +1,44 @@
+﻿@model DonVo.MLNet.DTOs.ResultMulticlassClassificationsDTO
+@{
+    ViewData["Title"] = "Multiclass Classifications Result";
+}
+
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+            <div class="list_block container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-xl-9">
+                        <h3 class="top">Multiclass Classifications</h3>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <div>
+                            <a asp-action="Index">Back to Machine Learning</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-xl-9">
+                        <br />
+                        <h4 class="top">Prediction Product Category of Different Algorithms</h4>
+                    </div>
+                    <br />
+                    <div class="col-lg-8 col-xl-9">
+                        <h4 class="top">Total Records was Trained: 12,627,608 rows</h4>
+                    </div>
+                </div>
+                <br />
+                <h5><u style="color:grey">Product:</u>@Model.ProductName </h5>
+                <h5><u style="color:grey">Product Subcategory:</u>@Model.ProductSubcategoryName </h5>
+                <br />
+                <br />
+                <h6><i style="color:brown">LbfgsMaximumEntropy: </i> @Model.ResultLbfgsMaximumEntropy.ProductCategoryName</h6>
+                <br />
+                <h6><i style="color:darkgreen">NaiveBayes: </i>@Model.ResultNaiveBayes.ProductCategoryName</h6>
+                <br />
+                <h6><i style="color:blue">SdcaMaximumEntropy: </i> @Model.ResultSdcaMaximumEntropy.ProductCategoryName</h6>
+                <br />
+                <h6><i style="color:orangered">SdcaNonCalibrated: </i> @Model.ResultSdcaNonCalibrated.ProductCategoryName</h6>
+            </div>
+        </div>
+    </div>
+</section>

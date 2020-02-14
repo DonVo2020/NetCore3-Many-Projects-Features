@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DonVo.ViewModels.DTOs.ResultSearchStrategyPlansDTO>
+@{
+    ViewData["Title"] = "ResultSearch";
+}
+
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+            <div class="list_block container-fluid">
+
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-xl-9">
+                        <h2 class="top">Search Result for Strategy Plans - @Model.Count()</h2>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <div>
+                            <a asp-action="Index">Return to Search</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th title="EntityName">Entity Name</th>
+                                <th title="ScenarioName">Scenario Name</th>
+                                <th title="AccountName">Account Name</th>
+                                <th title="ProductCategoryName">Product Category Name</th>
+                                <th title="Amount">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @{int counter = 1;}
+
+                            @foreach (var m in Model)
+                            {
+                            <tr>
+                                <td>@counter</td>
+                                <td title="@m.EntityName">@m.EntityName</td>
+                                <td title="@m.ScenarioName">@m.ScenarioName</td>
+                                <td title="@m.AccountName">@m.AccountName</td>
+                                <td title="@m.ProductCategoryName">@m.ProductCategoryName</td>
+                                <td>$@m.Amount</td>
+                            </tr>
+                                counter++;
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

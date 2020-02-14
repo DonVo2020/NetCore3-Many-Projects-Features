@@ -1,0 +1,121 @@
+﻿@model DonVo.ViewModels.CreateMainStoreViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+
+            <div class="row align-items-center mt-3">
+                <div class="col-md-10">
+                    <h1>Add Store</h1>
+                </div>
+            </div>
+            <hr>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="StoreName" class="info-label">Store Name</label>
+                        <input asp-for="StoreName" class="form-control" />
+                        <span asp-validation-for="StoreName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="StoreManager" class="info-label">Store Manager</label>
+                        <input asp-for="StoreManager" class="form-control" />
+                        <span asp-validation-for="StoreManager" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="StoreDescription" class="info-label">Store Description</label>
+                        <input asp-for="StoreDescription" class="form-control" />
+                        <span asp-validation-for="StoreDescription" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="AddressLine1" class="info-label">Address</label>
+                        <input asp-for="AddressLine1" class="form-control" />
+                        <span asp-validation-for="AddressLine1" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="StorePhone" class="info-label">Store Phone</label>
+                        <input asp-for="StorePhone" class="form-control" />
+                        <span asp-validation-for="StorePhone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="StoreType" class="info-label">Store Type</label>
+                        <input asp-for="StoreType" class="form-control" />
+                        <span asp-validation-for="StoreType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="ZipCode" class="info-label">Zip Code</label>
+                        <input asp-for="ZipCode" class="form-control" />
+                        <span asp-validation-for="ZipCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="ZipCodeExtension" class="info-label">Zip Code Extension</label>
+                        <input asp-for="ZipCodeExtension" class="form-control" />
+                        <span asp-validation-for="ZipCodeExtension" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="Status" class="info-label">Status</label>
+                        <input asp-for="Status" class="form-control" />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="OpenDate" class="info-label">Open Date</label>
+                        <input asp-for="OpenDate" class="form-control" />
+                        <span asp-validation-for="OpenDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="CloseDate" class="info-label">Close Date</label>
+                        <input asp-for="CloseDate" class="form-control" />
+                        <span asp-validation-for="CloseDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="CloseReason" class="info-label">Close Reason</label>
+                        <input asp-for="CloseReason" class="form-control" />
+                        <span asp-validation-for="CloseReason" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="SellingAreaSize" class="info-label">Selling Area Size</label>
+                        <input asp-for="SellingAreaSize" class="form-control" />
+                        <span asp-validation-for="SellingAreaSize" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="EmployeeCount" class="info-label">Employee Count</label>
+                        <input asp-for="EmployeeCount" class="form-control" />
+                        <span asp-validation-for="EmployeeCount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="LastRemodelDate" class="info-label">Last Remodel Date</label>
+                        <input asp-for="LastRemodelDate" class="form-control" />
+                        <span asp-validation-for="LastRemodelDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="form-group col-lg-3">
+                        <div>
+                            <a asp-action="Index">Return</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <input type="submit" value="Add" class="btn btn-success btn-default" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@if (TempData["ErrorsList"] != null)
+{
+    await Html.RenderPartialAsync("_Errors", TempData["ErrorsList"]);
+}

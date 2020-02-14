@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DonVo.MLNet.DataModels.FactStrategyPlanAnomalyDetectionsPrediction>
+@{
+    ViewData["Title"] = "Anomaly Detections Result";
+}
+
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+            <div class="list_block container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-xl-9">
+                        <h3 class="top">@ViewBag.DetectSpike with Size of  @Model.Count() records</h3>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <div>
+                            <a asp-action="Index">Back to Machine Learning</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th title="Alert">Alert</th>
+                                <th title="Score">Score</th>
+                                <th title="PValue">P-Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{int counter = 1;}
+
+                            @foreach (var m in Model)
+                            {
+                                @if (m.Prediction[0] != 0)
+                                {
+                                    <tr>
+                                        <td>@counter</td>
+                                        <td title="@m.Prediction[0]">@m.Prediction[0]</td>
+                                        <td title="@m.Prediction[1]">@m.Prediction[1]</td>
+                                        <td title="@m.Prediction[2]">@m.Prediction[2]</td>
+                                    </tr>
+                                    counter++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

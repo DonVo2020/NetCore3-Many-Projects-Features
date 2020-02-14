@@ -1,0 +1,92 @@
+﻿@model DonVo.ViewModels.CreateMainPromotionViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+
+            <div class="row align-items-center mt-3">
+                <div class="col-md-10">
+                    <h1>Add Promotion</h1>
+                </div>
+            </div>
+            <hr>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="PromotionName" class="info-label">Promotion Name</label>
+                        <input asp-for="PromotionName" class="form-control" />
+                        <span asp-validation-for="PromotionName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="PromotionDescription" class="info-label">Promotion Description</label>
+                        <input asp-for="PromotionDescription" class="form-control" />
+                        <span asp-validation-for="PromotionDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="PromotionCategory" class="info-label">Promotion Category</label>
+                        <input asp-for="PromotionCategory" class="form-control" />
+                        <span asp-validation-for="PromotionCategory" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="DiscountPercent" class="info-label">Discount Percent</label>
+                        <input asp-for="DiscountPercent" class="form-control" />
+                        <span asp-validation-for="DiscountPercent" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="StartDate" class="info-label">Start Date</label>
+                        <input asp-for="StartDate" class="form-control" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="EndDate" class="info-label">End Date</label>
+                        <input asp-for="EndDate" class="form-control" />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="MinQuantity" class="info-label">Min Quantity</label>
+                        <input asp-for="MinQuantity" class="form-control" />
+                        <span asp-validation-for="MinQuantity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="MaxQuantity" class="info-label">Max Quantity</label>
+                        <input asp-for="MaxQuantity" class="form-control" />
+                        <span asp-validation-for="MaxQuantity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="PromotionLabel" class="info-label">Promotion Label</label>
+                        <input asp-for="PromotionLabel" class="form-control" />
+                        <span asp-validation-for="PromotionLabel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="PromotionType" class="info-label">Promotion Type</label>
+                        <input asp-for="PromotionType" class="form-control" />
+                        <span asp-validation-for="PromotionType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="form-group col-lg-3">
+                        <div>
+                            <a asp-action="Index">Return</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <input type="submit" value="Add" class="btn btn-success btn-default" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@if (TempData["ErrorsList"] != null)
+{
+    await Html.RenderPartialAsync("_Errors", TempData["ErrorsList"]);
+}

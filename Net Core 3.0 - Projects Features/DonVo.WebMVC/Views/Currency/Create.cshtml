@@ -1,0 +1,53 @@
+﻿@model DonVo.ViewModels.CreateMainCurrencyViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+
+            <div class="row align-items-center mt-3">
+                <div class="col-md-10">
+                    <h1>Add Currency</h1>
+                </div>
+            </div>
+            <hr>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="CurrencyName" class="info-label">Currency Name</label>
+                        <input asp-for="CurrencyName" class="form-control" />
+                        <span asp-validation-for="CurrencyName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="CurrencyDescription" class="info-label">Currency Description</label>
+                        <input asp-for="CurrencyDescription" class="form-control" />
+                        <span asp-validation-for="CurrencyDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-lg-4 col-xl-4">
+                        <label asp-for="CurrencyLabel" class="info-label">Currency ISO Code</label>
+                        <input asp-for="CurrencyLabel" class="form-control" />
+                        <span asp-validation-for="CurrencyLabel" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="form-group col-lg-3">
+                        <div>
+                            <a asp-action="Index">List of Currencies</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <input type="submit" value="Add" class="btn btn-success btn-default" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+@if (TempData["ErrorsList"] != null)
+{
+    await Html.RenderPartialAsync("_Errors", TempData["ErrorsList"]);
+}

@@ -1,0 +1,197 @@
+﻿@{
+    ViewData["Title"] = "Search";
+}
+
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+            <h3 class="mt-3" style="color:forestgreen">Search in ContosoRetailDW database</h3>
+            @*<ul class="nav nav-pills mt-3 mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Search #1</a>
+                </li>
+            </ul>
+            <hr>*@
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="accordion" id="accordionLeft">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Search Inventory
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionLeft">
+                                        <form asp-action="SearchInventory">
+                                            <div class="card-body pb-3 pt-3">
+                                                <div class="form-group col-lg-12">
+                                                    <label>Store</label>
+                                                    <select class="custom-select" name="storeKey" asp-items="@ViewBag.Stores">
+                                                        <option value="">Select Store</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-12">
+                                                    <label>Product</label>
+                                                    <select class="custom-select" name="productKey" asp-items="@ViewBag.Products">
+                                                        <option value="">Select Product</option>
+                                                    </select>
+                                                </div>
+                                                <div class="input-group-append col-md-12">
+                                                    <input type="submit" value="Find" class="btn btn-success btn-block" />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                Search ITSLA
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionLeft">
+                                        <form asp-action="SearchITSLA">
+                                            <div class="card-body pb-3 pt-3">
+                                                <div class="form-group col-lg-12">
+                                                    <label>Store</label>
+                                                    <select class="custom-select" name="storeKey" asp-items="@ViewBag.Stores">
+                                                        <option value="">Select Store</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-12">
+                                                    <label>Machine</label>
+                                                    <select class="custom-select" name="machineKey" asp-items="@ViewBag.Machines">
+                                                        <option value="">Select Machine</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-12">
+                                                    <label>Outage</label>
+                                                    <select class="custom-select" name="outageKey" asp-items="@ViewBag.Outages">
+                                                        <option value="">Select Outage</option>
+                                                    </select>
+                                                </div>
+                                                <div class="input-group-append col-md-12">
+                                                    <input type="submit" value="Find" class="btn btn-success btn-block" />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="accordion" id="accordionRight">
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                                Search Sales
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionRight">
+                                        <form asp-action="SearchSales">
+                                            <div class="card-body pb-3 pt-3">
+                                                <div class="form-group col-lg-12">
+                                                    <label>Channel</label>
+                                                    <select class="custom-select" name="channelKey" asp-items="@ViewBag.Channels">
+                                                        <option value="">Select Channel</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-12">
+                                                    <label>Store</label>
+                                                    <select class="custom-select" name="storeKey" asp-items="@ViewBag.Stores">
+                                                        <option value="">Select Store</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-12">
+                                                    <label>Product</label>
+                                                    <select class="custom-select" name="productKey" asp-items="@ViewBag.Products">
+                                                        <option value="">Select Product</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-12">
+                                                    <label>Promotion</label>
+                                                    <select class="custom-select" name="promotionKey" asp-items="@ViewBag.Promotions">
+                                                        <option value="">Select Promotion</option>
+                                                    </select>
+                                                </div>
+                                                <div class="input-group-append col-md-12">
+                                                    <input type="submit" value="Find" class="btn btn-success btn-block" />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" id="headingFour">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                                Search Strategy Plans
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionRight">
+                                        <form asp-action="SearchStrategyPlans">
+                                            <div class="card-body pb-3 pt-3">
+                                                <div class="form-group col-lg-12">
+                                                    <label>Entity</label>
+                                                    <select class="custom-select" name="entityKey" asp-items="@ViewBag.Entities">
+                                                        <option value="">Select Entity</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-12">
+                                                    <label>Scenario</label>
+                                                    <select class="custom-select" name="scenarioKey" asp-items="@ViewBag.Scenarios">
+                                                        <option value="">Select Scenario</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-12">
+                                                    <label>Account</label>
+                                                    <select class="custom-select" name="accountKey" asp-items="@ViewBag.Accountings">
+                                                        <option value="">Select Account</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-lg-12">
+                                                    <label>Product Category</label>
+                                                    <select class="custom-select" name="productCategoryKey" asp-items="@ViewBag.ProductCategories">
+                                                        <option value="">Select Product Category</option>
+                                                    </select>
+                                                </div>
+                                                <div class="input-group-append col-md-12">
+                                                    <input type="submit" value="Find" class="btn btn-success btn-block" />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts
+    {
+    <environment include="Development">
+        <script src="~/js/views/search.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/views/search.min.js" asp-append-version="true"></script>
+    </environment>
+}

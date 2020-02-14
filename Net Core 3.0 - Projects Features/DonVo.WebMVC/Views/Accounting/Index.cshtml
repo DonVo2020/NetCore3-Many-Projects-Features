@@ -1,0 +1,99 @@
+﻿@model IEnumerable<DonVo.ViewModels.DTOs.Directories.AccountingDTO>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+            <div class="row">
+                <a asp-controller="Home" asp-action="Directory" class="back-link">Return</a>
+                <hr />
+                <div class="form-group">
+                    <a asp-action="Create" class="btn btn-success">Add Accounting</a>
+                </div>
+            </div>
+            <div class="row main-block">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Account Name
+                            </th>
+                            <th>
+                                Account Description
+                            </th>
+                            <th>
+                                Account Type
+                            </th>
+                            <th>
+                                Operator
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (TempData["ErrorsList"] == null)
+                        {
+                            foreach (var item in Model)
+                            {
+                        <tr>
+                            <td>
+                                @item.AccountName
+                            </td>
+                            <td>
+                                @item.AccountDescription
+                            </td>
+                            <td>
+                                @item.AccountType
+                            </td>
+                            <td>
+                                @item.Operator
+                            </td>
+
+                            @*<td class="text-right">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="CreateCustomer" asp-route-id="@item.AccountKey">Add Accounting</a>
+
+                                        @if (User.IsInRole("Admin"))
+                                        {
+                                            <a class="dropdown-item delete"
+                                               href=""
+                                               data-controller="Customer"
+                                               data-action="Delete"
+                                               data-id="@item.AccountKey"
+                                               data-body-message="Are you sure you want to Remove unit?">Remove</a>
+                                        }
+                                    </div>
+                                </div>
+                            </td>*@
+                        </tr>
+                            }
+                        }
+                        else
+                        {
+                            await Html.RenderPartialAsync("_Errors", TempData["ErrorsList"]);
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@if (User.IsInRole("Admin"))
+{
+    @section Scripts
+    {
+        <environment include="Development">
+            <script src="~/js/delete.js"></script>
+        </environment>
+
+        <environment exclude="Development">
+            <script src="~/js/delete.min.js" asp-append-version="true"></script>
+        </environment>
+    }
+}

@@ -1,0 +1,73 @@
+﻿@model DonVo.MLNet.DTOs.FactStrategyPlanClusteringDTO
+@{
+    ViewData["Title"] = "Clustering Result";
+}
+
+
+<section class="add-user container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12 add-user_block">
+            <div class="list_block container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-xl-9">
+                        <h3 class="top">Clustering</h3>
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <div>
+                            <a asp-action="Index">Back to Machine Learning</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-xl-9">
+                        <br />
+                        <h4 class="top">Prediction Clustering Key using KMeans Algorithm</h4>
+                    </div>
+                    <br />
+                    <div class="col-lg-8 col-xl-9">
+                        <h4 class="top">Total Records was Trained: 2,750,628 rows</h4>
+                    </div>
+                </div>
+                <br />
+                <h5><u style="color:grey">Entity:</u>@Model.EntityName </h5>
+                <h5><u style="color:grey">Scenario:</u>@Model.ScenarioName </h5>
+                <h5><u style="color:grey">Account:</u>@Model.AccountName </h5>
+                <h5><u style="color:grey">Product Category:</u>@Model.ProductCategoryName </h5>
+                <br />
+                <h6><i style="color:brown">Predict Amount Clustering Key: </i> @Model.SelectedClusterId</h6>
+                @*<h6><i style="color:forestgreen">Actual Amount: </i> $@Model.ActualAmount</h6>*@
+
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th title="Key1">Key 1</th>
+                                <th title="Key2">Key 2</th>
+                                <th title="Key3">Key 3</th>
+                                <th title="Key4">Key 4</th>
+                                <th title="Key5">Key 5</th>
+                                <th title="Key6">Key 6</th>
+                                <th title="Key7">Key 7</th>
+                                <th title="Key8">Key 8</th>
+                                <th title="Key9">Key 9</th>
+                                <th title="Key10">Key 10</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td title="@Model.AmountKeys[0]">$@Model.AmountKeys[0]</td>
+                                <td title="@Model.AmountKeys[1]">$@Model.AmountKeys[1]</td>
+                                <td title="@Model.AmountKeys[2]">$@Model.AmountKeys[2]</td>
+                                <td title="@Model.AmountKeys[3]">$@Model.AmountKeys[3]</td>
+                                <td title="@Model.AmountKeys[4]">$@Model.AmountKeys[4]</td>
+                                <td title="@Model.AmountKeys[5]">$@Model.AmountKeys[5]</td>
+                                <td title="@Model.AmountKeys[6]">$@Model.AmountKeys[6]</td>
+                                <td title="@Model.AmountKeys[7]">$@Model.AmountKeys[7]</td>
+                                <td title="@Model.AmountKeys[8]">$@Model.AmountKeys[8]</td>
+                                <td title="@Model.AmountKeys[9]">$@Model.AmountKeys[9]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
