@@ -1,0 +1,3 @@
+PM> Scaffold-DbContext "Server=LAPTOP-ILQS92OM\SQLEXPRESS;Database=ContosoRetailDW;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+PM> Scaffold-DbContext "Server=LAPTOP-ILQS92OM\SQLEXPRESS;Database=DonVoSystemAudit;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir AuditModels
