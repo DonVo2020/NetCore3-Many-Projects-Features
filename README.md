@@ -4,7 +4,7 @@ MVC-EF Database First-AutoMapper-IdentityJwtBearer-Swagger-ML.NET-SeriLog-Servic
 01. DDD.Core.Messages
 02. DDD.Core.Abstractions
 03. DDD.Common.Messages
-04. DDD.Core
+04. DDD.Core.
 	04a. Domain
 	04b. Application
 	04c. Infrastructure
