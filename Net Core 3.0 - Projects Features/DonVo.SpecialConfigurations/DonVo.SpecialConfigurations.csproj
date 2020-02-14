@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="Hashids.net" Version="1.3.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DonVo.IdentityJwtBearer\DonVo.IdentityJwtBearer.csproj" />
+    <ProjectReference Include="..\DonVo.Persistences\DonVo.Persistences.csproj" />
+    <ProjectReference Include="..\DonVo.ViewModels\DonVo.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
