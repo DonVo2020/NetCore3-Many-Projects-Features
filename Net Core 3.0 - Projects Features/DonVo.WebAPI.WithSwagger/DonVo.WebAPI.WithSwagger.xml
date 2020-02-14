@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DonVo.TradeUnionCommittee.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:DonVo.WebAPI.WithSwagger.Controllers.Account.AccountController.Token(DonVo.ViewModels.TokenViewModel)">
+            <summary>
+            Client Type available values:
+            'Web-Application',
+            'Desktop-Application' or
+            'Mobile-Application'
+            </summary>
+        </member>
+        <member name="M:DonVo.WebAPI.WithSwagger.Controllers.Account.AccountController.RefreshToken(DonVo.WebAPI.WithSwagger.ViewModels.RefreshTokenViewModel)">
+            <summary>
+            Client Type available values:
+            'Web-Application',
+            'Desktop-Application' or
+            'Mobile-Application'
+            </summary>
+        </member>
+    </members>
+</doc>
